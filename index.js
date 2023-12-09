@@ -1,2 +1,2 @@
-import ScrollThumb from '@/component/ScrollThumb';
+import ScrollThumb from './component/ScrollThumb';
 export { ScrollThumb };

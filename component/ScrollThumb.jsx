@@ -1,4 +1,4 @@
-import { UseScrollThumb } from '@/hook/useScrollThumb.jsx';
+import { UseScrollThumb } from './hook/useScrollThumb';
 import PropTypes from 'prop-types';
 
 /**
@@ -12,33 +12,42 @@ import PropTypes from 'prop-types';
  */
 
 /**
- * ScrollThumb component for displaying a scroll thumb without the scrollbar; hides when idle and reappears on scroll.
+ * ScrollThumb component for displaying a scroll thumb without the scrollbar;
+ * hides when idle and reappears on scroll.
  *
- * @component
- * @example
- * // Example usage with right-positioned thumb
- * <ScrollThumb
- *   color={"rgba(37, 99, 235, 1)"}
- *   width={6}
- *   height={64}
- *   position={"right"}
- *   zIndex={50}
- *   borderRadius={8}
- * />
- *
- * @param {ScrollThumbProps} props - The properties of the ScrollThumb component.
- * @returns {Object} - The rendered ScrollThumb component.
+ * @returns {ScrollThumbProps} - The properties of the ScrollThumb component.
  */
-const ScrollThumb = ({ color, width, height, position, zIndex, borderRadius }) => {
+const useScrollThumb = () => {
 	const { scrollPercentage, isShowThumb, thumbElementRef } = UseScrollThumb ();
+	return {
+		scrollPercentage,
+		isShowThumb,
+		thumbElementRef
+	};
+};
 
+/**
+ * @param {ScrollThumbProps} props - The properties of the ScrollThumb component.
+ * @returns {Component} - The rendered ScrollThumb component.
+ */
+const ScrollThumb = (props) => {
+	const {
+		color,
+		width,
+		height,
+		position,
+		zIndex,
+		borderRadius
+	} = props;
+
+	const { scrollPercentage, isShowThumb, thumbElementRef } = useScrollThumb ();
 
 	const thumbStyle = {
 		top: `${scrollPercentage}%`,
 		opacity: isShowThumb ? 1 : 0,
 		width: width || 6,
 		height: height || 64,
-		backgroundColor: color || 'rgba (37, 99, 235, 1)',
+		backgroundColor: color || 'rgb (37, 99, 235)',
 		right: position === 'right' ? '1' : 'auto',
 		left: position === 'left' ? '1' : 'auto',
 		zIndex: zIndex || 50,
@@ -55,8 +64,6 @@ const ScrollThumb = ({ color, width, height, position, zIndex, borderRadius }) =
 		/>
 	);
 };
-
-export default ScrollThumb;
 
 ScrollThumb.propTypes = {
 	/**
@@ -90,3 +97,5 @@ ScrollThumb.propTypes = {
 	 */
 	borderRadius: PropTypes.number
 };
+
+export default ScrollThumb;
