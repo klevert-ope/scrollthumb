@@ -1,0 +1,30 @@
+{
+  "name": "scroll-thumb",
+  "version": "1.0.0",
+  "description": "ScrollThumb component for displaying a scroll thumb without the scrollbar; hides when idle and reappears on scroll.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klevert-ope/scrollthumb.git"
+  },
+  "keywords": [
+    "scrollthumb",
+    "gsap",
+    "thumb"
+  ],
+  "author": "Klevert Opee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klevert-ope/scrollthumb/issues"
+  },
+  "homepage": "https://github.com/klevert-ope/scrollthumb#readme",
+  "devDependencies": {
+    "prop-types": "^15.8.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
