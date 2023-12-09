@@ -11,7 +11,7 @@ Autocomplete, guides on hover and type definitions are available for the compone
 Install the package using npm:
 
 ```bash
-npm install scroll-thumb
+npm install scrollthumb
 ```
 Make sure react and prop-types (as a devDependencies for type definitions) are properly installed and available in your project.
 
@@ -20,7 +20,7 @@ Make sure react and prop-types (as a devDependencies for type definitions) are p
 Example usage with right-positioned thumb; place it between the body and the main element.
 
 ```jsx
-import {ScrollThumb} from 'scroll-thumb';
+import {ScrollThumb} from 'scrollthumb';
 
 
 <ScrollThumb
@@ -38,7 +38,7 @@ next.js/gsap example
 
 ```jsx
 'use client';
-import { ScrollThumb } from "scroll-thumb";
+import { ScrollThumb } from "scrollthumb";
 import { useScrollSmoother } from "use-scrollsmoother";
 
 export default function Home() {
