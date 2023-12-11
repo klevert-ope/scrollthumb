@@ -1,4 +1,4 @@
-# Scroll-Thumb
+# Scroll Thumb
 
 ## Overview
 
@@ -20,16 +20,16 @@ Make sure react and prop-types (as a devDependencies for type definitions) are p
 Example usage with right-positioned thumb; place it between the body and the main element.
 
 ```jsx
-import {ScrollThumb} from 'scrollthumb';
+import ScrollThumb from 'scrollthumb';
 
 
 <ScrollThumb
-  color={"rgba(37, 99, 235, 1)"}
-  width={6}
-  height={64}
-  position={"right"}
-  zIndex={50}
-  borderRadius={8}
+	color={"rgba(37, 99, 235, 1)"}
+	width={6}
+	height={64}
+	position={"right"}
+	zIndex={50}
+	borderRadius={8}
 />
 ```
 ## Example Gsap Usage
@@ -38,11 +38,11 @@ next.js/gsap example
 
 ```jsx
 'use client';
-import { ScrollThumb } from "scrollthumb";
-import { useScrollSmoother } from "use-scrollsmoother";
+import ScrollThumb from "scrollthumb";
+import {useScrollSmoother} from "use-scrollsmoother";
 
 export default function Home() {
-	const { smoothWrapperRef, smoothContentRef } = useScrollSmoother({
+	const {smoothWrapperRef, smoothContentRef} = useScrollSmoother({
 		config: {
 			smooth: 2,
 			smoothTouch: 0.2,
@@ -79,7 +79,7 @@ export default function Home() {
 ### `color` (optional)
 
 - The background color of the thumb.
-- No Default
+- Default: 'rgba(37, 99, 235, 1)'
 
 ### `width` (optional)
 
