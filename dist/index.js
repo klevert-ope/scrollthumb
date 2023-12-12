@@ -4,15 +4,21 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 /**
  * @typedef {Object} ScrollThumbProps
  * @property {string} [color] - The background color of the thumb.
- * @property {number} [width] - The width of the thumb.
+ * Default is 'rgb (37, 99, 235)'
+ * @property {number} [width] - The width of the thumb. Default is 6 px
  * @property {number} [height] - The height of the thumb.
+ * Default is 64 px
  * @property {('left'|'right')} [position] - The position of the thumb, either 'left' or 'right'.
  * @property {number} [zIndex] - The z-index of the thumb.
+ * Default is 50
  * @property {number} [borderRadius] - The border radius of the thumb.
+ * @property {number} [hidetime] - The hide timeout for the thumb in seconds.
+ * Default is 2 seconds
  */
 
 /**
- * ScrollThumb component for displaying a scroll thumb without the scrollbar; hides when idle and reappears on scroll.
+ * ScrollThumb component for displaying a scroll thumb without the scrollbar;
+ * hides when idle and reappears on scroll.
  *
  * @component
  * @example
@@ -24,54 +30,66 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
  *   position={"right"}
  *   zIndex={50}
  *   borderRadius={8}
+ *   hidetime={3}
  * />
  *
+ * @returns {ScrollThumbProps} - The properties of the ScrollThumb component.
  * @param {ScrollThumbProps} props - The properties of the ScrollThumb component.
- * @returns {Object} - The rendered ScrollThumb component.
+ * @returns {Component} - The rendered ScrollThumb component.
  */
-const ScrollThumb = ({
-  color,
-  width,
-  height,
-  position,
-  zIndex,
-  borderRadius
-}) => {
+
+const ScrollThumb = props => {
+  const {
+    color,
+    width,
+    height,
+    position,
+    zIndex,
+    borderRadius,
+    hidetime
+  } = props;
   const {
     scrollPercentage,
     isShowThumb,
     thumbElementRef
-  } = useScrollThumb();
+  } = UseScrollThumb({
+    Timeout: hidetime
+  });
   const thumbStyle = {
+    position: 'fixed',
     top: `${scrollPercentage}%`,
     opacity: isShowThumb ? 1 : 0,
     width: width || 6,
     height: height || 64,
-    backgroundColor: color || 'rgba(37, 99, 235, 1)',
-    right: position === 'right' ? 1 : 'auto',
-    left: position === 'left' ? 1 : 'auto',
+    backgroundColor: color || 'rgb(37, 99, 235)',
+    right: position === 'right' ? 3 : 'auto',
+    left: position === 'left' ? 3 : 'auto',
     zIndex: zIndex || 50,
-    borderRadius: borderRadius || 0
+    borderRadius: borderRadius || 0,
+    transitionProperty: 'opacity',
+    transition: 'ease-in-out'
   };
   return /*#__PURE__*/React.createElement("div", {
     style: thumbStyle,
-    ref: thumbElementRef,
-    className: `fixed rounded-lg transition-opacity ease-in-out ${position === 'right' ? 'right-1' : 'left-1'}`
+    ref: thumbElementRef
   });
 };
 ScrollThumb.propTypes = {
   /**
    * The color of the thumb.
+   * Default is 'rgb (37, 99, 235)'
    * @type {string}
    */
   color: PropTypes.string,
   /**
    * The width of the thumb.
+   * Default is 6 px
    * @type {number}
    */
   width: PropTypes.number,
   /**
    * The height of the thumb.
+   * Default is 64 px
    * @type {number}
    */
   height: PropTypes.number,
@@ -82,17 +100,27 @@ ScrollThumb.propTypes = {
   position: PropTypes.oneOf(['left', 'right']),
   /**
    * The z-index of the thumb.
+   * Default is 50
    * @type {number}
    */
   zIndex: PropTypes.number,
   /**
    * The border radius of the thumb.
+   * Default is 0 px
    * @type {number}
    */
-  borderRadius: PropTypes.number
+  borderRadius: PropTypes.number,
+  /**
+   * The hide timeout for the thumb in seconds.
+   * Default is 2 seconds
+   * @type {number}
+   */
+  hidetime: PropTypes.number
 };
-function useScrollThumb() {
-  let hideTimeout = 3000;
+function UseScrollThumb({
+  Timeout
+}) {
+  let hideTimeout = (Timeout || 2) * 1000;
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [isShowThumb, setIsShowThumb] = useState(false);
   const thumbElementRef = useRef(null);
