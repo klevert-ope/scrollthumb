@@ -30,6 +30,7 @@ import ScrollThumb from 'scrollthumb';
 	position={"right"}
 	zIndex={50}
 	borderRadius={8}
+	hidetime={3}
 />
 ```
 ## Example Gsap Usage
@@ -67,6 +68,7 @@ export default function Home() {
 				position={"right"}
 				zIndex={100}
 				borderRadius={8}
+				hidetime={3}
 			/>
 		</>
 	);
@@ -76,35 +78,40 @@ export default function Home() {
 
 ## Props
 
-### `color` (optional)
+### `color` 
 
 - The background color of the thumb.
 - Default: 'rgba(37, 99, 235, 1)'
 
-### `width` (optional)
+### `width` 
 
 - The width of the thumb.
-- Default: 6
+- Default: 6px
 
-### `height` (optional)
+### `height` 
 
 - The height of the thumb.
-- Default: 64
+- Default: 64px
 
-### `position` (optional)
+### `position` 
 
 - The position of the thumb, either 'left' or 'right'.
 - Default: 'left'
 
-### `zIndex` (optional)
+### `zIndex` 
 
 - The z-index of the thumb.
 - Default: 50
 
-### `borderRadius` (optional)
+### `borderRadius` 
 
 - The border radius of the thumb.
-- Default: 0
+- Default: 0px
+
+### `hidetime` 
+
+- The hide timeout for the thumb in seconds.
+- Default: 2 seconds
 
 
 ## License
