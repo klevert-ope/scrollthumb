@@ -1,6 +1,6 @@
 {
   "name": "scrollthumb",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "ScrollThumb component for displaying a scroll thumb without the scrollbar; hides when idle and reappears on scroll.",
   "main": "dist/index.js",
   "type": "module",
