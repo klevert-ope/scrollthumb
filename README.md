@@ -2,35 +2,34 @@
 
 ## Overview
 
-`ScrollThumb` is an easy-to-use React component that allows you to display a scroll thumb without the scrollbar. The thumb automatically hides when idle and reappears on scroll, providing a sleek and unobtrusive user interface for tracking scroll progress. It Also works well with gsap's ScrollSmoother.
+`ScrollThumb` is an easy-to-use React component that allows you to display a scroll thumb without the scrollbar. The thumb automatically hides when idle and reappears on scroll, providing a sleek and unobtrusive user interface for tracking scroll progress. It Also works well with gsap's ScrollSmoother on React frameworks.
 
 Autocomplete, guides on hover and type definitions are available for the component.
 
 ## Installation
 
-Install the package using npm:
+Install the package using:
 
 ```bash
 npm install scrollthumb
 ```
-Make sure react and prop-types (as a devDependencies for type definitions) are properly installed and available in your project.
 
 ## Usage
 
-Example usage with right-positioned thumb; place it between the body and the main element.
+Example usage of thumb; place it between the body and the main element.
 
 ```jsx
 import ScrollThumb from 'scrollthumb';
 
 
 <ScrollThumb
-	color={"rgba(37, 99, 235, 1)"}
-	width={6}
-	height={64}
-	position={"right"}
-	zIndex={50}
-	borderRadius={8}
-	hidetime={3}
+	color={'rgba(37, 99, 235, 1)'}
+	width={'6px'}
+	height={'64px'}
+	position={'right'}
+	zIndex={'100'}
+	borderRadius={'8px'}
+	hidetime={'3'}
 />
 ```
 ## Example Gsap Usage
@@ -47,8 +46,8 @@ export default function Home() {
 		config: {
 			smooth: 2,
 			smoothTouch: 0.2,
-			normalizeScroll: true,
-			ignoreMobileResize: true,
+			snormalizeScroll: true,
+			signoreMobileResize: true,
 		},
 	});
 
@@ -62,14 +61,14 @@ export default function Home() {
 				</div>
 			</div>
 			<ScrollThumb
-				color={"rgba(37, 99, 235, 1)"}
-				width={6}
-				height={64}
-				position={"right"}
-				zIndex={100}
-				borderRadius={8}
-				hidetime={3}
-			/>
+				color={'rgba(37, 99, 235, 1)'}
+				width={'6px'}
+				height={'64px'}
+				position={'right'}
+				zIndex={'100'}
+				borderRadius={'8px'}
+				hidetime={'3'}
+                />
 		</>
 	);
 }
@@ -106,7 +105,7 @@ export default function Home() {
 ### `borderRadius` 
 
 - The border radius of the thumb.
-- Default: 0px
+- Default: 2px
 
 ### `hidetime` 
 

@@ -1,21 +1,37 @@
-import babel from '@rollup/plugin-babel';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
+import dts from 'rollup-plugin-dts'
+import esbuild from 'rollup-plugin-esbuild'
 
-export default {
-	input: './src/component/ScrollThumb.jsx',
-	output: {
-		file: 'dist/index.js',
-		format: 'es',
-	},
-	plugins: [
-		resolve(),
-		commonjs(),
-		babel({
-			exclude: 'node_modules/**',
-			presets: ['@babel/preset-react'],
-			babelHelpers: 'bundled',
-		}),
-	],
-	external: ['react', 'react-dom', 'prop-types'],
-};
+/**
+ * @param {import('rollup').RollupOptions} config
+ * @returns {import('rollup').RollupOptions}
+ */
+const bundle = config => ({
+	...config,
+	input: 'src/ScrollThumb.tsx',
+	external: (id) => !/^[./]/.test(id)
+})
+
+export default [
+	bundle({
+		plugins: [esbuild()],
+		output: [
+			{
+				file: `scrollthumb.js`,
+				format: 'cjs',
+				sourcemap: true,
+			},
+			{
+				file: `scrollthumb.mjs`,
+				format: 'es',
+				sourcemap: true,
+			},
+		],
+	}),
+	bundle({
+		plugins: [dts()],
+		output: {
+			file: `scrollthumb.d.ts`,
+			format: 'es',
+		},
+	}),
+]

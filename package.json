@@ -1,8 +1,10 @@
 {
   "name": "scrollthumb",
-  "version": "1.2.1",
-  "description": "ScrollThumb component for displaying a scroll thumb without the scrollbar; hides when idle and reappears on scroll.",
-  "main": "dist/index.js",
+  "version": "1.2.5",
+  "description": "ScrollThumb component designed to display a scroll thumb independently of the scrollbar.",
+  "main": "scrollthumb.js",
+  "module": "scrollthumb.mjs",
+  "typings": "scrollthumb.d.ts",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
@@ -24,16 +26,14 @@
   },
   "homepage": "https://github.com/klevert-ope/scrollthumb#readme",
   "dependencies": {
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5",
-    "@babel/preset-react": "^7.23.3",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.7.0"
+    "@types/react": "^18.2.45",
+    "esbuild": "^0.19.10",
+    "rollup": "^4.9.1",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.0",
+    "typescript": "^5.3.3"
   }
 }
