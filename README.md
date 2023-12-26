@@ -1,6 +1,7 @@
 # Scroll Thumb
 
-## Overview
+[![Static Badge](https://img.shields.io/badge/npm-latest_v1.2.5-blue?logo=npm)](https://www.npmjs.com/package/scrollthumb)
+![Static Badge](https://img.shields.io/badge/license-ISC-red)
 
 `ScrollThumb` is an easy-to-use React component that allows you to display a scroll thumb without the scrollbar. The thumb automatically hides when idle and reappears on scroll, providing a sleek and unobtrusive user interface for tracking scroll progress. It Also works well with gsap's ScrollSmoother on React frameworks.
 
