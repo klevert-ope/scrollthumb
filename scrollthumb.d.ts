@@ -1,3 +1,13 @@
+import React from 'react';
+
+/**
+ * @file
+ * ScrollThumb component designed to display a scroll thumb independently of the scrollbar.
+ * The thumb hides when idle and reappears upon scrolling.
+ * @copyright (c) 2023 Klevert Opee
+ * @license ISC
+ */
+
 type ScrollThumbProps = {
     /**
      * The background color of the thumb.
@@ -17,7 +27,7 @@ type ScrollThumbProps = {
     /**
      * The position of the thumb, either 'left' or 'right'.
      */
-    position: 'left' | 'right';
+    position?: 'left' | 'right';
     /**
      * The z-index of the thumb.
      * Default is 50.
@@ -52,6 +62,6 @@ type ScrollThumbProps = {
  * @param {ScrollThumbProps} props - Properties specific to the ScrollThumb component.
  * @returns {ScrollThumbProps} - The properties of the ScrollThumb component.
  */
-declare const ScrollThumb: (props: ScrollThumbProps) => JSX.Element;
+declare const ScrollThumb: (props: ScrollThumbProps) => React.JSX.Element;
 
 export { ScrollThumb as default };

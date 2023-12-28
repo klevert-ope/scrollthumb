@@ -1,6 +1,6 @@
 {
   "name": "scrollthumb",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "ScrollThumb component designed to display a scroll thumb independently of the scrollbar.",
   "main": "scrollthumb.js",
   "module": "scrollthumb.mjs",
